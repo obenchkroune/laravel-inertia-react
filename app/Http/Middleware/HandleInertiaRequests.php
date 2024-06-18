@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Data\SharedData;
+use App\Data\UserData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -35,8 +38,13 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return array_merge(parent::share($request), [
-            //
-        ]);
+        $state = new SharedData(
+            user: fn() => UserData::from(Auth::user()),
+        );
+
+        return array_merge(
+            parent::share($request),
+            $state->toArray()
+        );
     }
 }

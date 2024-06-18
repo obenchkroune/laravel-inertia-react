@@ -14,6 +14,11 @@ export default defineConfig({
                 run: ['php', 'artisan', 'typescript:transform'],
                 pattern: ['app/**/*.php', 'app/**/Enums/**/*.php'],
             },
+            {
+                name: 'routes',
+                run: ['php', 'artisan', 'trail:generate'],
+                pattern: ['routes/*.php'],
+            },
         ]),
     ],
 });

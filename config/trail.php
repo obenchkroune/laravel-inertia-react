@@ -2,7 +2,7 @@
 
 return [
     'output' => [
-        'routes' => resource_path('scripts/routes/routes.json'),
-        'typescript' => resource_path('scripts/types/routes.d.ts'),
+        'routes' => resource_path('ts/routes.json'),
+        'typescript' => resource_path('types/routes.d.ts'),
     ],
 ];
