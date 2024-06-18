@@ -16,15 +16,7 @@ export default defineConfig({
             },
             {
                 name: 'models',
-                run: [
-                    'php',
-                    'artisan',
-                    'model:typer',
-                    '--optional-nullables',
-                    '--no-hidden',
-                    '>',
-                    'resources/types/models.d.ts',
-                ],
+                run: ['php', 'artisan', 'app:generate-models-types'],
                 pattern: [
                     'database/migrations/**/*.php',
                     'app/Models/**/*.php',
